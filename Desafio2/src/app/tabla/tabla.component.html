@@ -1,0 +1,22 @@
+<table  class="table table-bordered border-Secondary">
+    <thead>
+      <tr>
+  
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Calificacion</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Curso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <td>{{estudiante.nombre |uppercase}}</td>
+        <td>{{estudiante.apellido |uppercase}}</td>
+        <td>{{estudiante.nota}}</td>
+        <td *ngIf="estudiante.nota>5;else desaprobado" [ngClass]="'table-success'">APROBADO</td>
+      <ng-template  #desaprobado> <td  [ngClass]="'table-danger'">DESAPROBADO</td></ng-template>
+      <td>{{estudiante.curso}}</td>
+      </tr>
+    </tbody>
+  </table>
